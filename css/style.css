@@ -2,6 +2,19 @@ body, h1, h2, ul, li, p, dd, dt, dl {
   margin: 0px;
   padding: 0px;
 }
+body::-webkit-scrollbar {
+  width: 18px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #836FFF;
+  border-left: 4px solid #faf6ed;
+  border-right: 4px solid #faf6ed;
+}
+
+body::-webkit-scrollbar-track {
+  background: #faf6ed;
+}
 
 img {
   display: block;
@@ -35,7 +48,7 @@ body {
 
 .menu li a {
   display: block;
-  padding: 10px;
+  padding: 16px;
   margin-right: 10px;
   color: #222;
   text-decoration: none;
@@ -95,7 +108,13 @@ body {
   overflow-y: scroll;
   grid-column: 2;
 }
-
+.animais-lista li{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.animais-lista li:hover{
+  filter: brightness(0.5);
+}
 .animais-lista::-webkit-scrollbar {
   width: 18px;
 }
@@ -204,5 +223,23 @@ body {
   }
   .copy {
     margin-bottom: 0px;
+  }
+}
+
+.js .js-tabcontent section{
+  display: none;
+}
+.js-tabcontent section.ativo{
+  display: block;
+  animation: show .5s;
+}
+@keyframes show {
+  from{
+    opacity: 0;
+    transform: translate3d(-30px,0,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0,0,0);
   }
 }

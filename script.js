@@ -1,1 +1,18 @@
-console.log('ativo')
+const tabMenu = document.querySelectorAll('.js-tabmenu li');
+const tabContent = document.querySelectorAll('.js-tabcontent section');
+tabContent[0].classList.add('ativo')
+
+if(tabMenu.length && tabContent.length){
+    function activeTab(index){
+        tabContent.forEach((content)=>{
+            content.classList.remove('ativo')
+        })
+        tabContent[index].classList.add('ativo')
+    }
+    //navegação de tabs foi baseada no index, pois sempre terá o mesmo numero de elementos
+    tabMenu.forEach((itemMenu, index)=>{
+        itemMenu.addEventListener('click', ()=>{
+            activeTab(index)
+        })
+    })
+}

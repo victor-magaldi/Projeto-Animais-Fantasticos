@@ -1,14 +1,17 @@
 function initTabNav(){
-    const tabMenu = document.querySelectorAll('.js-tabmenu li');
-    const tabContent = document.querySelectorAll('.js-tabcontent section');
+    const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+    const tabContent = document.querySelectorAll('[data-tab="content"] section');
     tabContent[0].classList.add('ativo')
 
     if(tabMenu.length && tabContent.length){
         function activeTab(index){
             tabContent.forEach((content)=>{
+                
                 content.classList.remove('ativo')
             })
-            tabContent[index].classList.add('ativo')
+        
+            const direcao = tabContent[index].dataset.anime;
+            tabContent[index].classList.add("ativo",direcao)
         }
         //navegação de tabs foi baseada no index, pois sempre terá o mesmo numero de elementos
         tabMenu.forEach((itemMenu, index)=>{
@@ -20,7 +23,7 @@ function initTabNav(){
 }
 initTabNav();
 function initAccordion(){
-    const accordionList = document.querySelectorAll('.js-accordion dt');
+    const accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
     const ativoClass = 'ativo';
 
     if(accordionList.length){
@@ -39,7 +42,7 @@ initAccordion();
 
 
 function initScrollSuave(){
-    const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+    const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
 
     function scrollToSection(event){
         event.preventDefault();
@@ -51,7 +54,7 @@ function initScrollSuave(){
             behavior:'smooth',
             block: 'start'
         });
-        //forma alternativa de colcoar um scroll suave
+        //forma alternativa de colocar um scroll suave
         // window.scrollTo({
         //     top:topo,
         //     behavior: "smooth"
@@ -66,7 +69,7 @@ initScrollSuave();
 
 
 function initAnimationScroll(){
-    const sections = document.querySelectorAll(".js-scroll");
+    const sections = document.querySelectorAll("[data-anime='scroll']");
 // animação acontecerá a partir de 65 % da tela
     if(sections.length){
         const windowmetade = window.innerHeight * 0.4;

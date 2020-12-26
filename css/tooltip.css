@@ -7,6 +7,7 @@
   color: white;
   font-weight: bold;
   font-size: 0.875rem;
-  max-width: 150px;
+  max-width: 170px;
   border-radius: 2px;
+  pointer-events: none;
 }

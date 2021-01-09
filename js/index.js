@@ -6,6 +6,7 @@ import initmodal from "./modules/modal-login.js";
 import InitTooltip from "./modules/tooltip.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
+import initAnimaNumero from "./modules/anima-numeros.js";
 
 initScrollSuave();
 initAnimationScroll();

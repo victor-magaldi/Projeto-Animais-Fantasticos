@@ -8,6 +8,6 @@ export default function initFetchBitcoin() {
          btnPreco.innerText = milReaisBitcoin;
       })
       .catch((error) => {
-         console.log(Error(erro));
+         console.log(Error(error));
       });
 }

@@ -3,6 +3,7 @@ export default function initAccordion() {
       '[data-anime="accordion"] dt'
    );
    const ativoClass = "ativo";
+   console.log("testandoooooo");
 
    function activeAccordion() {
       this.classList.toggle(ativoClass);

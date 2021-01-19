@@ -2,7 +2,7 @@ import ScrollSuave from "./modules/scroll-suave.js";
 import initAnimationScroll from "./modules/anima-scroll.js";
 import TabNav from "./modules/nav-tabs.js";
 import Accordion from "./modules/nav-accordion.js";
-import initmodal from "./modules/modal-login.js";
+import Modal from "./modules/modal-login.js";
 import InitTooltip from "./modules/tooltip.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
@@ -20,7 +20,12 @@ const tabNav = new TabNav(
    '[data-tab="content"] section'
 );
 tabNav.init();
-initmodal();
+const modal = new Modal(
+   "[data-modal=abrir",
+   "[data-modal=fechar",
+   "[data-modal=container"
+);
+modal.init();
 InitTooltip();
 initDropdownMenu();
 initMenuMobile();

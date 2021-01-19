@@ -4,7 +4,6 @@ export default function initFetchAnimais() {
    async function fetchAnimais(url) {
       const animaisResponse = await fetch(url);
       const animaisJson = await animaisResponse.json();
-      console.log(animaisJson);
       const numerosGrid = document.querySelector(".numeros-grid");
       animaisJson.forEach((animal) => {
          // eslint-disable-next-line no-use-before-define
@@ -14,7 +13,6 @@ export default function initFetchAnimais() {
       initAnimaNumero();
    }
    function createAnimal(animal) {
-      console.log(animal);
       const div = document.createElement("div");
       div.classList.add("numero-animais");
       div.innerHTML = `

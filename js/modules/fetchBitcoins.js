@@ -3,7 +3,6 @@ export default function initFetchBitcoin() {
       .then((res) => res.json())
       .then((json) => {
          const btnPreco = document.querySelector(".btc-preco");
-         console.log(btnPreco);
          const milReaisBitcoin = (1000 / json.BRL.sell).toFixed(4);
          btnPreco.innerText = milReaisBitcoin;
       })

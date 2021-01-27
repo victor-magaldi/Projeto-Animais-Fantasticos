@@ -1,8 +1,8 @@
 export default class Modal {
    constructor(btnAbrir, btnFechar, containerModal) {
-      this.btnAbrir = btnAbrir;
-      this.btnFechar = btnFechar;
-      this.containerModal = containerModal;
+      this.btnAbrir = document.querySelector(btnAbrir);
+      this.btnFechar = document.querySelector(btnFechar);
+      this.containerModal = document.querySelector(containerModal);
    }
 
    init() {
@@ -20,6 +20,7 @@ export default class Modal {
          }
       }
       if (this.btnAbrir && this.btnFechar && this.containerModal) {
+         console.log(this.btnAbrir);
          this.btnAbrir.addEventListener("click", toggleModal);
          this.btnFechar.addEventListener("click", toggleModal);
          this.containerModal.addEventListener("click", foraDoModal);

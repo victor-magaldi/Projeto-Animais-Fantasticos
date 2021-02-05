@@ -1,6 +1,6 @@
 import ScrollSuave from "./modules/scroll-suave.js";
 import initAnimationScroll from "./modules/anima-scroll.js";
-import TabNav from "./modules/nav-tabs.js";
+import TabNav from "./modules/TabNav.js";
 import Accordion from "./modules/nav-accordion.js";
 import Modal from "./modules/modal-login.js";
 import Tooltip from "./modules/tooltip.js";

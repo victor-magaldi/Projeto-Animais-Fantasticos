@@ -1,5 +1,5 @@
 import ScrollSuave from "./modules/scroll-suave.js";
-import initAnimationScroll from "./modules/anima-scroll.js";
+import AnimaScroll from "./modules/AnimaScroll.js";
 import TabNav from "./modules/TabNav.js";
 import Accordion from "./modules/nav-accordion.js";
 import Modal from "./modules/modal-login.js";
@@ -12,9 +12,13 @@ import fetchAnimais from "./modules/fetchAnimais.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
+
 const accordion = new Accordion('[data-anime="accordion"] dt');
 accordion.init();
-initAnimationScroll();
+
+const animaScroll = new AnimaScroll("[data-anime='scroll']");
+animaScroll.init();
+
 const tabNav = new TabNav(
    '[data-tab="menu"] li',
    '[data-tab="content"] section'

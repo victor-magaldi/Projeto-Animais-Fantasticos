@@ -25,7 +25,6 @@ export default class animaScrol {
             offsetTop: sectionTop - this.windowmetade,
          };
       });
-      console.log(this.distances);
    }
 
    // verfica a distancia do scroll com referencia nas sections

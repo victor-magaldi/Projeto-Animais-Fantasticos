@@ -20,7 +20,6 @@ export default class Modal {
          }
       }
       if (this.btnAbrir && this.btnFechar && this.containerModal) {
-         console.log(this.btnAbrir);
          this.btnAbrir.addEventListener("click", toggleModal);
          this.btnFechar.addEventListener("click", toggleModal);
          this.containerModal.addEventListener("click", foraDoModal);

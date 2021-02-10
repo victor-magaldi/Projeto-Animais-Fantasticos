@@ -10,7 +10,6 @@ export default function fetchAnimais(url, target) {
       const numerosGrid = document.querySelector(target);
 
       animaisJson.forEach((animal) => {
-         console.log(animal);
          // eslint-disable-next-line no-use-before-define
          const divAnimal = createAnimal(animal);
          numerosGrid.appendChild(divAnimal);

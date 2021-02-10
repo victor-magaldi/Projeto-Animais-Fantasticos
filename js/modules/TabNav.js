@@ -23,7 +23,6 @@ export default class TabNav {
    addEventsTabs() {
       if (this.tabMenu.length && this.tabContent.length) {
          // navegação de tabs foi baseada no index, pois sempre terá o mesmo numero de elementos
-         console.log("passou");
          this.tabMenu.forEach((itemMenu, index) => {
             itemMenu.addEventListener("click", () => {
                this.activeTab(index);

@@ -4,7 +4,7 @@ import TabNav from "./modules/TabNav.js";
 import Accordion from "./modules/nav-accordion.js";
 import Modal from "./modules/modal-login.js";
 import Tooltip from "./modules/tooltip.js";
-import initDropdownMenu from "./modules/dropdown-menu.js";
+import DropdownMenu from "./modules/DropdownMenu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import fetchBitcoin from "./modules/fetchBitcoins.js";
@@ -32,7 +32,8 @@ const modal = new Modal(
 modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
-initDropdownMenu();
+const dropdownMenu = new DropdownMenu("[data-dropdown]");
+dropdownMenu.init();
 initMenuMobile();
 initFuncionamento();
 fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");

@@ -37,8 +37,9 @@ tooltip.init();
 const dropdownMenu = new DropdownMenu("[data-dropdown]");
 dropdownMenu.init();
 
-const menuMobile = new MenuMobile();
+const menuMobile = new MenuMobile("[data-menu=button]", "[data-menu=list]");
 menuMobile.init();
+
 initFuncionamento();
 fetchBitcoin("https://blockchain.info/ticker", ".btc-preco");
 fetchAnimais("/animaisapi.json", ".numeros-grid");

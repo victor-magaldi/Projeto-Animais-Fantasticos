@@ -3,6 +3,12 @@ class Slide {
       this.slide = document.querySelector(slide);
       this.wrapper = document.querySelector(wrapper);
 
+      this.dist = {
+         finalPosition: 0,
+         startX: 0,
+         movement: 0,
+      };
+
       this.init();
    }
 
@@ -12,18 +18,38 @@ class Slide {
       return this;
    }
 
+   moveSlide(distX) {
+      this.dist.movePosition = distX;
+      this.slide.style.transform = `translate3d(${distX}px,0,0)`;
+
+      // salvar a distancia pra não ficar reiniciando toda vez
+   }
+
+   updatePosition(clientX) {
+      // basta apenas multiplicar o movement para deixar o slider mais rápido
+      this.dist.movement = (clientX - this.dist.startX) * 1.6;
+      return this.dist.finalPosition + this.dist.movement;
+   }
+
    onMove(event) {
-      console.log("onmove");
+      const finalPosition = this.updatePosition(event.clientX);
+      console.log(finalPosition);
+      console.log(this.dist.movement);
+      this.moveSlide(finalPosition);
    }
 
    onStart(event) {
       event.preventDefault();
-      console.log("onStart mouse down");
+      this.dist.startX = event.clientX;
+      this.slide.style.cursor = "grab";
       this.wrapper.addEventListener("mousemove", this.onMove);
    }
 
    onEnd(event) {
-      console.log("onEnd");
+      this.slide.style.cursor = "default";
+
+      this.dist.finalPosition = this.dist.movePosition;
+
       this.wrapper.removeEventListener("mousemove", this.onMove);
    }
 

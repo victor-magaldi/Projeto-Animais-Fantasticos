@@ -32,17 +32,31 @@ class Slide {
    }
 
    onMove(event) {
-      const finalPosition = this.updatePosition(event.clientX);
-      console.log(finalPosition);
-      console.log(this.dist.movement);
+      const pointerPosition =
+         event.type === "mousemove"
+            ? event.clientX
+            : event.changedTouchs[0].clientX;
+
+      const finalPosition = this.updatePosition(pointerPosition);
       this.moveSlide(finalPosition);
    }
 
    onStart(event) {
-      event.preventDefault();
-      this.dist.startX = event.clientX;
+      let moveType;
+
+      if (event.type === "mousedown") {
+         event.preventDefault();
+         this.dist.startX = event.clientX;
+         moveType = "mousemove";
+      } else {
+         this.dist.startX = event.changedTouchs[0].clientX;
+         // o touchEvent pode ter mais de um dedo então é um pouco diferente do mouse
+         moveType = "touchmove";
+      }
+      console.log(event);
+
       this.slide.style.cursor = "grab";
-      this.wrapper.addEventListener("mousemove", this.onMove);
+      this.wrapper.addEventListener(moveType, this.onMove);
    }
 
    onEnd(event) {
@@ -55,7 +69,10 @@ class Slide {
 
    addSlideEvents() {
       this.wrapper.addEventListener("mousedown", this.onStart);
+      // this.wrapper.addEventListener("touchstart", this.onStart);
+
       this.wrapper.addEventListener("mouseup", this.onEnd);
+      // this.wrapper.addEventListener("touchend", this.onEnd);
    }
 
    bindEvents() {

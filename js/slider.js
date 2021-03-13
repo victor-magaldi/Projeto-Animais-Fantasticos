@@ -11,6 +11,7 @@ class Slide {
 
       this.init();
       this.changeSlide();
+      this.activeNextSlide();
    }
 
    // slides configs
@@ -22,6 +23,7 @@ class Slide {
    slideConfig() {
       this.slideArray = [...this.slide.children].map((element) => {
          const position = this.slidePosition(element);
+         console.log(position);
          return {
             position,
             element,
@@ -29,11 +31,10 @@ class Slide {
       });
    }
 
-   slideIndexNav(index) {
+   slidesIndexNav(index) {
       const last = this.slideArray.length - 1;
-
       this.index = {
-         prev: index !== 0 ? undefined : index - 1,
+         prev: index ? index - 1 : undefined,
          active: index,
          next: index === last ? undefined : index + 1,
       };
@@ -51,6 +52,22 @@ class Slide {
       this.addSlideEvents();
       this.slideConfig();
       return this;
+   }
+
+   activePrevSlide() {
+      console.log(this.index);
+      this.changeSlide(this.index.prev);
+
+      if (this.index.prev !== undefined) {
+         this.changeSlide(this.index.prev);
+      }
+   }
+
+   activeNextSlide() {
+      console.log(this);
+      if (this.index.prev !== undefined) {
+         this.changeSlide(this.index.next);
+      }
    }
 
    moveSlide(distX) {
@@ -73,6 +90,7 @@ class Slide {
             : event.changedTouchs[0].clientX;
 
       const finalPosition = this.updatePosition(pointerPosition);
+      console.log(finalPosition);
       this.moveSlide(finalPosition);
    }
 
@@ -94,12 +112,22 @@ class Slide {
       this.wrapper.addEventListener(moveType, this.onMove);
    }
 
+   changeSlideOnEnd() {
+      console.log(this.dist.movement);
+      if (this.dist.movement >= 120) {
+         this.activeNextSlide();
+      } else if (this.dist.movement <= -120) {
+         this.activePrevSlide();
+      }
+   }
+
    onEnd(event) {
       this.slide.style.cursor = "default";
 
       this.dist.finalPosition = this.dist.movePosition;
 
       this.wrapper.removeEventListener("mousemove", this.onMove);
+      this.changeSlideOnEnd();
    }
 
    addSlideEvents() {

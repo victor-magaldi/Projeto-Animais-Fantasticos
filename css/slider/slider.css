@@ -18,6 +18,10 @@ img {
 }
 .slide {
    display: flex;
+   cursor: grab;
+}
+.slide:hover {
+   will-change: transform;
 }
 .slide li {
    margin: 0;
@@ -26,4 +30,15 @@ img {
    width: 80vw;
    max-width: 800px;
    margin: 0 20px;
+
+   border-radius: 4px;
+   overflow: hidden;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+   transform: scale(0.9);
+   transition: 0.3s ease-in-out;
+}
+
+.slide li.active {
+   transform: scale(1);
+   border: solid #836fff 2px;
 }

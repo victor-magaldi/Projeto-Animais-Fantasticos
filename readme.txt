@@ -1,9 +1,12 @@
-# Sobre
+# Projeto Animais Fantásticos 🚀
 
 O Projeto foi desenvolvido com foco em aprender Javascript
 
 ### `Rodando o Projeto `
 
+```bash
+  git clone https://github.com/victor-magaldi/Projeto-Animais-Fantasticos.git
+```
 Instalar a extensão live server no vscode para levantar um server
 -Basta clicar com o botão direito no index.html e depois open with live server
 

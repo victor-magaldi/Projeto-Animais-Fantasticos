@@ -1,14 +1,23 @@
 # Projeto Animais Fantásticos 🚀
 
-O Projeto foi desenvolvido com foco em aprender Javascript
+Este Projeto foi feito para treinar javascript, ele tem como foco aprender as features principais e utilizar um javascript moderno e organizado!
 
-### `Rodando o Projeto `
+## `Rodando o Projeto `
 
 ```bash
   git clone https://github.com/victor-magaldi/Projeto-Animais-Fantasticos.git
 ```
 Instalar a extensão live server no vscode para levantar um server
 -Basta clicar com o botão direito no index.html e depois open with live server
+
+## Tecnologias 🔥
+
+- javascript
+- html 
+- css
+- webpack
+- babel 
+- git
 
 ### `🚀 Features`
 
